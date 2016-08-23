@@ -1,5 +1,6 @@
 [MESSAGES CONTROL]
-disable=invalid-name,missing-docstring,too-few-public-methods
+disable=invalid-name,missing-docstring,too-few-public-methods,
+        misplaced-comparison-constant
 
 [REPORTS]
 reports=no
