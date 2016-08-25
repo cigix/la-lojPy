@@ -39,3 +39,25 @@ def mkTree(node, out=sys.stdout):
     print("digraph {", file=out)
     node.toDot(-1, out)
     print("}", file=out)
+
+def dictToTrie(dic):
+    '''Turn a dict into a dict of dicts of dicts... in the shape of a trie.
+
+    Parameters:
+        - dic: the dict to turn into a trie.
+
+    Precondictions: no key of dic must be a prefix of another.
+    '''
+    root = dict()
+    # For each string that leads to a value
+    for k in dic.keys():
+        cur = root
+        # For each character in the key (except the last one)
+        for c in k[:-1]:
+            if c not in cur.keys():
+                # Create a dict
+                cur[c] = dict()
+            cur = cur[c]
+        # For the last character, put the value
+        cur[k[-1:]] = dic[k]
+    return root
