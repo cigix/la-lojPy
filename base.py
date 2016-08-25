@@ -50,7 +50,7 @@ def dictToTrie(dic):
     '''
     root = dict()
     # For each string that leads to a value
-    for k in dic.keys():
+    for k in sorted(dic.keys()):
         cur = root
         # For each character in the key (except the last one)
         for c in k[:-1]:
